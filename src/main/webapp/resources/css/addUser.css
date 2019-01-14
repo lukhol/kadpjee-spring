@@ -1,0 +1,12 @@
+@CHARSET "UTF-8";
+
+DIV.errorStatement{
+	color: #ff5b5b;
+}
+
+#loginContainer{
+	width: 50%;
+	margin-left: auto;
+	margin-right: auto;
+	color: white;
+}

@@ -1,0 +1,1 @@
+Old Spring web app for 'Kontenery aplikacyjne dla platformy JAVAEE' (Politechnika Łódźka). All commits are missed so only one initial commit with all file is there. Code is not good because it was writen in the begining of my programming journey.

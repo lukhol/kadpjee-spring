@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/mvc"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:beans="http://www.springframework.org/schema/beans"
+	xmlns:jpa="http://www.springframework.org/schema/data/jpa"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc 
+	http://www.springframework.org/schema/mvc/spring-mvc.xsd
+		http://www.springframework.org/schema/beans 
+		http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context 
+		http://www.springframework.org/schema/context/spring-context.xsd
+		http://www.springframework.org/schema/data/jpa
+    	http://www.springframework.org/schema/data/jpa/spring-jpa.xsd">
+
+	<!-- DispatcherServlet Context: defines this servlet's request-processing 
+		infrastructure -->
+	<!-- Enables the Spring MVC @Controller programming model -->
+	<annotation-driven conversion-service="conversionService" />
+
+	<beans:bean id="conversionService"
+		class="org.springframework.context.support.ConversionServiceFactoryBean">
+		<beans:property name="converters">
+			<beans:set>
+				<beans:bean class="pl.lukasz.edukacja.utils.MultipartFileConverter" />
+				<!-- <beans:bean class="pl.lukasz.edukacja.utils.DateConverter" /> -->
+			</beans:set>
+		</beans:property>
+	</beans:bean>
+
+	<!-- Handles HTTP GET requests for /resources/** by efficiently serving 
+		up static resources in the ${webappRoot}/resources directory -->
+	<resources mapping="/resources/**" location="/resources/" />
+
+	<beans:bean class="org.springframework.web.servlet.view.UrlBasedViewResolver">
+		<!--Don't add suffix or prefix like you do with .jsp files -->
+		<beans:property name="viewClass"
+			value="org.springframework.web.servlet.view.tiles3.TilesView" />
+	</beans:bean>
+
+	<beans:bean id="tilesConfigurer"
+		class="org.springframework.web.servlet.view.tiles3.TilesConfigurer">
+		<beans:property name="definitions"
+			value="/WEB-INF/spring/appServlet/tiles.xml" />
+	</beans:bean>
+
+	<beans:bean id="messageSource"
+		class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+		<beans:property name="basename" value="classpath:messages/messages" />
+		<beans:property name="defaultEncoding" value="UTF-8" />
+	</beans:bean>
+
+	<interceptors>
+		<beans:bean id="localeChangeInterceptor"
+			class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor">
+			<beans:property name="paramName" value="lang" />
+		</beans:bean>
+	</interceptors>
+
+	<beans:bean id="localeResolver"
+		class="org.springframework.web.servlet.i18n.CookieLocaleResolver">
+		<beans:property name="defaultLocale" value="en" />
+	</beans:bean>
+
+	<!-- Resolves views selected for rendering by @Controllers to .jsp resources 
+		in the /WEB-INF/views directory -->
+	<beans:bean
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<beans:property name="prefix" value="/WEB-INF/views/" />
+		<beans:property name="suffix" value=".jsp" />
+	</beans:bean>
+
+	<!-- DAO - config -->
+	<!-- -->
+	<context:component-scan base-package="pl.lukasz.edukacja.controller" />
+
+
+	<!-- JPA - config -->
+	<!-- <context:component-scan base-package="pl.dmcs.rkotas.controller2" /> -->
+
+	<beans:bean id="multipartResolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<beans:property name="maxUploadSize" value="10000000" />
+	</beans:bean>
+
+	<beans:bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+		<!-- SMTP settings -->
+		<beans:property name="host" value="smtp.gmail.com" />
+		<beans:property name="port" value="587" />
+		<beans:property name="username" value="email.do.springa" />
+		<beans:property name="password" value="c1ricac1rica" />
+		<beans:property name="javaMailProperties">
+			<!-- additional properties specific to JavaMail -->
+			<beans:props>
+				<beans:prop key="mail.transport.protocol">smtp</beans:prop>
+				<beans:prop key="mail.smtp.auth">true</beans:prop>
+				<beans:prop key="mail.smtp.starttls.enable">true</beans:prop>
+			</beans:props>
+		</beans:property>
+	</beans:bean>
+
+</beans:beans>

@@ -1,0 +1,28 @@
+@CHARSET "UTF-8";
+
+HEADER#mainHeader{
+	color: white;
+	text-align: center;
+	min-height: 100%;
+	padding: 1px;
+	background-color:rgba(40, 40, 40, 0.5);
+}
+
+
+
+HEADER#mainHeader > span > a
+{
+	text-decoration: none;
+	color: white;
+}
+
+HEADER#mainHeader > span > a:hover
+{
+	text-decoration: none;
+	color: #a7b5a6;
+	text-shadow: 2px 2px 2px #a7b5a6;
+}
+
+
+
+

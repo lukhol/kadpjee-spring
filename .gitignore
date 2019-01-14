@@ -1,0 +1,8 @@
+target/
+bin/
+obj/
+
+.hg/
+.hg_archival.txt
+.hgignore
+.settings/

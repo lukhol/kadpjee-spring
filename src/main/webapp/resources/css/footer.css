@@ -1,0 +1,14 @@
+@CHARSET "UTF-8";
+
+FOOTER#mainfooter{
+	color: white;
+	text-align: center;
+	min-height: 100%;
+	border-bottom: 1px solid gray;
+	border-top: 1px solid gray;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	background-color: black;
+	font-weight: 900;
+	
+}

@@ -1,0 +1,49 @@
+@CHARSET "UTF-8";
+
+NAV.mainNav {
+	background-color: #1d7c48;
+	width: 100%;
+	border-top: 1px solid #000070;
+	border-bottom: 1px solid #000070;
+	padding-bottom: 5px;
+	padding-top: 5px;
+	margin-left:auto;
+	margin-right: auto;
+	text-align: center;
+}
+
+ol#mymeu
+{
+	margin-top: 10px;
+	margin-bottom: 0px;
+	list-style-type: none;
+	text-align: center;
+}
+
+ol#mymenu > li
+{
+	list-style-type: none;
+	border-right: 2px dotted #000020;
+	padding-left: 25px;
+	padding-right: 25px;
+	font-size: 25px;
+	display: inline-block;
+}
+
+ol#mymenu > li > a
+{
+	color:white;
+	text-decoration: none;
+	font-weight: 700;
+	font-size: 20px;
+}
+
+ol#mymenu > li > a:hover
+{
+	color: #8ee086;
+}
+
+ol#mymenu > li:first-child
+{
+	border-left: 2px dotted #000020;
+}

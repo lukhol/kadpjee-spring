@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE tiles-definitions PUBLIC 
+		"-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN" 
+		"http://tiles.apache.org/dtds/tiles-config_3_0.dtd">  
+       
+<tiles-definitions>
+    <definition name="base.definition"
+        template="/WEB-INF/views/layout.jsp">
+        <put-attribute name="title" value="" /> <!--  Tutaj wstawiamy tytuł strony, ale nie ma go ponieważ będzie on podany podczas rozszerzania klasy -->
+        <put-attribute name="header" value="/WEB-INF/views/header.jsp" />
+        <put-attribute name="body" value="" />
+        <put-attribute name="footer" value="/WEB-INF/views/footer.jsp" />
+        <put-attribute name="menu" value="/WEB-INF/views/menu.jsp" />
+    </definition>
+
+    <definition name="home" extends="base.definition">
+        <put-attribute name="title" value="Edukacja - home" />
+        <put-attribute name="body" value="/WEB-INF/views/home.jsp" />
+    </definition>
+    
+    <definition name="addUser" extends="base.definition">
+        <put-attribute name="title" value="Dodaj użytkownika" />
+        <put-attribute name="body" value="/WEB-INF/views/addUser.jsp" />
+    </definition>
+    
+    <definition name="addUser2" extends="base.definition">
+        <put-attribute name="title" value="Dodaj użytkownika" />
+        <put-attribute name="body" value="/WEB-INF/views/addUser2.jsp" />
+    </definition>
+    
+    <definition name="listOfUsers" extends="base.definition">
+        <put-attribute name="title" value="Lista użytkowników" />
+        <put-attribute name="body" value="/WEB-INF/views/listOfUsers.jsp" />
+    </definition>
+    
+    <definition name="adminPage" extends="base.definition">
+        <put-attribute name="title" value="Strona administratora" />
+        <put-attribute name="body" value="/WEB-INF/views/adminPage.jsp" />
+    </definition>
+    
+    <definition name="adminPageTwo" extends="base.definition">
+        <put-attribute name="title" value="Strona administratora" />
+        <put-attribute name="body" value="/WEB-INF/views/adminPageTwo.jsp" />
+    </definition>
+    
+    <definition name="login" extends="base.definition">
+        <put-attribute name="title" value="Strona logowania" />
+        <put-attribute name="body" value="/WEB-INF/views/login.jsp" />
+    </definition>
+    
+    <definition name="activateUserGoesOk" extends="base.definition">
+        <put-attribute name="title" value="Aktywacja przebiegła pomślnie" />
+        <put-attribute name="body" value="/WEB-INF/views/activateUserGoesOk.jsp" />
+    </definition>
+    
+    <definition name="userDetails" extends="base.definition">
+        <put-attribute name="title" value="Strona logowania" />
+        <put-attribute name="body" value="/WEB-INF/views/userDetails.jsp" />
+    </definition>
+    
+    <definition name="activateUserGoesWrong" extends="base.definition">
+        <put-attribute name="title" value="Rejestracja nie powiodła się" />
+        <put-attribute name="body" value="/WEB-INF/views/activateUserGoesWrong.jsp" />
+    </definition>
+    
+</tiles-definitions>
